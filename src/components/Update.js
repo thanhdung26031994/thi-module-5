@@ -29,7 +29,7 @@ function Update() {
         })
     };
 
-    return(
+    return (
         <div className={'d-flex w-100 justify-content-center align-items-center bg-light'}>
             <div className={'w-50 border bg-white shadow px-5 pt-3 pb-5 rounded'}>
                 <h1>Update Product</h1>
@@ -65,4 +65,5 @@ function Update() {
         </div>
     )
 }
+
 export default Update;

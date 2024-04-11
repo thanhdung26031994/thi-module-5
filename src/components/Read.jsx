@@ -13,7 +13,7 @@ function Read() {
             ))
             .catch(err => console.log(err));
     }, []);
-    return(
+    return (
         <div className={'d-flex w-100 vh-100 justify-content-center align-items-center bg-light'}>
             <div className={'w-50 border bg-white shadow px-5 pt-3 pb-5 rounded'}>
                 <h3>Detail of Product</h3>
@@ -31,4 +31,6 @@ function Read() {
             </div>
         </div>
     )
-}export default Read;
+}
+
+export default Read;

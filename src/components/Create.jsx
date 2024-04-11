@@ -38,7 +38,8 @@ function Create() {
                     </div>
                     <div className={'mb-2'}>
                         <label htmlFor={'name'}>description</label>
-                        <input type={'text'} name={'description'} className={'form-control'} placeholder={'Enter Description'}
+                        <input type={'text'} name={'description'} className={'form-control'}
+                               placeholder={'Enter Description'}
                                onChange={event => setValue({...value, description: event.target.value})}/>
                     </div>
                     <button className={'btn btn-success'}>Submit</button>

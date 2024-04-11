@@ -8,15 +8,13 @@ function Home() {
     const navigate = useNavigate();
     useEffect(() => {
         axios.get('http://localhost:3000/products')
-            .then(res => (
-                setList(res.data)
-            ))
+            .then(res => (setList(res.data)))
             .catch(err => console.log(err));
     }, []);
 
-    const handleDelete=(id) => {
+    const handleDelete = (id) => {
         const confirm = window.confirm('Would you like to Delete ?');
-        if (confirm){
+        if (confirm) {
             axios.delete('http://localhost:3000/products/' + id)
                 .then(res => {
                     navigate('/');
@@ -25,8 +23,7 @@ function Home() {
             })
         }
     };
-    return (
-        <div className={'d-flex flex-column justify-content-center align-items-center bg-light vh-100'}>
+    return (<div className={'d-flex flex-column justify-content-center align-items-center bg-light vh-100'}>
             <h1>List of Products</h1>
             <div className={'w-75 rounded bg-white border shadow p-4'}>
                 <div className={'d-flex justify-content-end'}>
@@ -43,32 +40,27 @@ function Home() {
                     </tr>
                     </thead>
                     <tbody>
-                    {
-                        list.map((product, index) => (
-                            <tr key={product.id}>
-                                <td>{index + 1}</td>
-                                <td>
-                                    <Link to={`/read/${product.id}`}>
-                                        {product.title}
-                                    </Link>
-                                </td>
-                                <td>{product.description}</td>
-                                <td>{product.price}</td>
-                                <td>
-                                    <Link to={`/update/${product.id}`}
-                                          className={'btn btn-sm btn-primary me-2 '}>Edit</Link>
-                                    <button onClick={event => handleDelete(product.id)}
-                                            className={'btn btn-sm btn-danger'}>Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))
-                    }
+                    {list.map((product, index) => (<tr key={product.id}>
+                            <td>{index + 1}</td>
+                            <td>
+                                <Link to={`/read/${product.id}`}>
+                                    {product.title}
+                                </Link>
+                            </td>
+                            <td>{product.description}</td>
+                            <td>{product.price}</td>
+                            <td>
+                                <Link to={`/update/${product.id}`}
+                                      className={'btn btn-sm btn-primary me-2 '}>Edit</Link>
+                                <button onClick={event => handleDelete(product.id)}
+                                        className={'btn btn-sm btn-danger'}>Delete
+                                </button>
+                            </td>
+                        </tr>))}
                     </tbody>
                 </table>
             </div>
-        </div>
-    )
+        </div>)
 }
 
 export default Home;
