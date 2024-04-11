@@ -47,11 +47,14 @@ function Home() {
                         list.map((product, index) => (
                             <tr key={product.id}>
                                 <td>{index + 1}</td>
-                                <td>{product.title}</td>
+                                <td>
+                                    <Link to={`/read/${product.id}`}>
+                                        {product.title}
+                                    </Link>
+                                </td>
                                 <td>{product.description}</td>
                                 <td>{product.price}</td>
                                 <td>
-                                    <Link to={`/read/${product.id}`} className={'btn btn-sm btn-info me-2'}>Read</Link>
                                     <Link to={`/update/${product.id}`}
                                           className={'btn btn-sm btn-primary me-2 '}>Edit</Link>
                                     <button onClick={event => handleDelete(product.id)}
